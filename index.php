@@ -10,9 +10,9 @@ $pageTitle = "Math Quiz: Addition";
 if ( isset( $_POST['answer1'] ) ) {
   echo 'correct';
 } elseif ( isset( $_POST['answer2'] ) ) {
-      echo 'incorrect;
+      echo 'incorrect';
 } elseif ( isset( $_POST['answer3'] ) ) {
-      echo 'incorrect;
+      echo 'incorrect';
 }
 
 $questionsCount = 0;
