@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <?php
  include ("inc/questions.php");
+ session_start();
 //$q = $_GET["q"];
 //echo $q;
 $pageTitle = "Math Quiz: Addition";
@@ -16,11 +17,20 @@ if ( isset( $_POST['answer1'] ) ) {
 }
 
 $questionsCount = 0;
-if($questions[0]['correctAnswer']){
-//increments the question for each one they have right
+  if($questions[0]){
+//increments the question
    $questionsCount++;
 }
-var_dump ($questionsCount);
+//var_dump ($questionsCount);
+// $questions = 0;
+// $count= count($questions);
+//   foreach ($questions as $question) {
+//     $count++;
+// }
+//
+//
+$rand = array_rand($questions,1);
+shuffle($questions);
 ?>
 
 <html lang="en">
@@ -39,10 +49,11 @@ var_dump ($questionsCount);
             <p class="quiz"><?php echo "What is " . $questions[0]["leftAdder"] . " + " . $questions[0]["rightAdder"];?></p>
             <form action="index.php" method="post">
                 <input type="hidden" name="id" value="0"/>
-                <input type="submit" class="btn" name="answer1" value="<?php echo $questions[0] ["correctAnswer"];?>" />
+                <input type="submit" class="btn" name="answer1" value="<?php echo $questions[0]["correctAnswer"];?>" />
                 <input type="submit" class="btn" name="answer2" value="<?php echo $questions [0]["firstIncorrectAnswer"];?>" />
-                <input type="submit" class="btn" name="answer3" value="<?php echo $questions[0] ["secondIncorrectAnswer"];?>" />
+                <input type="submit" class="btn" name="answer3" value="<?php echo $questions[0]["secondIncorrectAnswer"];?>" />
             </form>
+
         </div>
     </div>
 </body>
