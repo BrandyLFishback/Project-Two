@@ -37,7 +37,7 @@ if($questions === 'correctAnswer'){
 
             <p class="breadcrumbs"> <?php echo "Question Number "  .  "$questionsCount " . "of " . "10"; ?>
             <p class="quiz"><?php echo "What is " . $questions[0]["leftAdder"] . " + " . $questions[0]["rightAdder"];?></p>
-            <form action="index.php=" method="post">
+            <form action="index.php" method="post">
                 <input type="hidden" name="id" value="0"/>
                 <input type="submit" class="btn" name="answer1" value="<?php echo $questions[0] ["correctAnswer"];?>" />
                 <input type="submit" class="btn" name="answer2" value="<?php echo $questions [0]["firstIncorrectAnswer"];?>" />
