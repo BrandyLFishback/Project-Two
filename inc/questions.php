@@ -1,5 +1,5 @@
 <?php
-$questions[0] =
+$questions[] =
     [
         "leftAdder" => 3,
         "rightAdder" => 4,
@@ -7,7 +7,7 @@ $questions[0] =
         "firstIncorrectAnswer" => 8,
         "secondIncorrectAnswer" => 10,
     ];
-$questions[1] =
+$questions[] =
     [
         "leftAdder" => 16,
         "rightAdder" => 32,
@@ -15,7 +15,7 @@ $questions[1] =
         "firstIncorrectAnswer" => 52,
         "secondIncorrectAnswer" => 61,
     ];
-$questions[2] =
+$questions[] =
     [
         "leftAdder" => 45,
         "rightAdder" => 12,
@@ -23,7 +23,7 @@ $questions[2] =
         "firstIncorrectAnswer" => 63,
         "secondIncorrectAnswer" => 55,
     ];
-$questions[3] =
+$questions[] =
     [
     "leftAdder" => 42,
     "rightAdder" => 18,
@@ -31,7 +31,7 @@ $questions[3] =
     "firstIncorrectAnswer" => 69,
     "secondIncorrectAnswer" => 57
     ];
-$questions[4] =
+$questions[] =
     [
     "leftAdder" => 96,
     "rightAdder" => 20,
@@ -39,7 +39,7 @@ $questions[4] =
     "firstIncorrectAnswer" => 120,
     "secondIncorrectAnswer" => 110
     ];
-$questions[5] =
+$questions[] =
     [
     "leftAdder" => 44,
     "rightAdder" => 85,
@@ -47,7 +47,7 @@ $questions[5] =
     "firstIncorrectAnswer" => 132,
     "secondIncorrectAnswer" => 126
     ];
-$questions[6] =
+$questions[] =
     [
     "leftAdder" => 51,
     "rightAdder" => 35,
@@ -55,7 +55,7 @@ $questions[6] =
     "firstIncorrectAnswer" => 96,
     "secondIncorrectAnswer" => 82
     ];
-$questions[7] =
+$questions[] =
     [
     "leftAdder" => 5,
     "rightAdder" => 61,
@@ -63,7 +63,7 @@ $questions[7] =
     "firstIncorrectAnswer" => 65,
     "secondIncorrectAnswer" => 74
     ];
-$questions[8] =
+$questions[] =
     [
     "leftAdder" => 26,
     "rightAdder" => 19,
@@ -71,7 +71,7 @@ $questions[8] =
     "firstIncorrectAnswer" => 40,
     "secondIncorrectAnswer" => 39
     ];
-$questions[9] =
+$questions[] =
     [
     "leftAdder" => 26,
     "rightAdder" => 35,

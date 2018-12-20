@@ -2,35 +2,35 @@
 <?php
  include ("inc/questions.php");
  session_start();
-//$q = $_GET["q"];
-//echo $q;
+
 $pageTitle = "Math Quiz: Addition";
-//var_dump ($_POST);
-//echo "<br>";
-//var_dump ($_GET);
-if ( isset( $_POST['answer1'] ) ) {
+
+
+if (!isset($_SESSION["score"])){
+  $_SESSION["score"] = 0;
+
+}
+
+/*if ( isset( $_POST['answer1'] ) ) {
   echo 'correct';
 } elseif ( isset( $_POST['answer2'] ) ) {
       echo 'incorrect';
 } elseif ( isset( $_POST['answer3'] ) ) {
       echo 'incorrect';
-}
+}*/
 
-$questionsCount = 0;
-  if($questions[0]){
-//increments the question
-   $questionsCount++;
-}
-//var_dump ($questionsCount);
-// $questions = 0;
-// $count= count($questions);
-//   foreach ($questions as $question) {
-//     $count++;
-// }
-//
-//
 $rand = array_rand($questions,1);
 shuffle($questions);
+
+$choices = [$questions[0]["correctAnswer"],$questions[0]["firstIncorrectAnswer"], $questions[0]["secondIncorrectAnswer"]];
+shuffle($choices);
+
+if ((!isset($_SESSION["counter"]) || $_SESSION["counter"] >9)){
+  $_SESSION["counter"] = 1;
+} else {
+    $_SESSION["counter"] += 1;
+}
+
 ?>
 
 <html lang="en">
@@ -45,13 +45,13 @@ shuffle($questions);
     <div class="container">
         <div id="quiz-box">
 
-            <p class="breadcrumbs"> <?php echo "Question Number "  .  "$questionsCount " . "of " . "10"; ?>
+            <p class="breadcrumbs"> <?php echo "Question Number "  . $_SESSION["counter"] . " of " . "10"; ?>
             <p class="quiz"><?php echo "What is " . $questions[0]["leftAdder"] . " + " . $questions[0]["rightAdder"];?></p>
             <form action="index.php" method="post">
                 <input type="hidden" name="id" value="0"/>
-                <input type="submit" class="btn" name="answer1" value="<?php echo $questions[0]["correctAnswer"];?>" />
-                <input type="submit" class="btn" name="answer2" value="<?php echo $questions [0]["firstIncorrectAnswer"];?>" />
-                <input type="submit" class="btn" name="answer3" value="<?php echo $questions[0]["secondIncorrectAnswer"];?>" />
+                <input type="submit" class="btn" name="answer1" value="<?php echo $choices[0];?>" />
+                <input type="submit" class="btn" name="answer2" value="<?php echo $choices[1];?>" />
+                <input type="submit" class="btn" name="answer3" value="<?php echo $choices[2];?>" />
             </form>
 
         </div>
