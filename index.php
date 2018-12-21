@@ -5,26 +5,42 @@
 
 $pageTitle = "Math Quiz: Addition";
 
+$_SESSION["score"] = 0;
+// if (!isset($_SESSION["score"])){
+//   $_SESSION["score"] = 0;
+// }
+// var_dump($_POST);
 
-if (!isset($_SESSION["score"])){
-  $_SESSION["score"] = 0;
-
+if ((isset($_SESSION["score"]) && $_SESSION["score"] == $choices[0]["correctAnswer"])){
+  $_SESSION["score"] += 1;
 }
 
-/*if ( isset( $_POST['answer1'] ) ) {
+// var_dump($_SESSION);
+
+// echo $_SESSION["score"];
+
+$buttons_array[] = [<input type="submit" class="btn" name="answer1" value="<?php echo $choices[0];?>" />];
+$buttons_array[] = [<input type="submit" class="btn" name="answer2" value="<?php echo $choices[1];?>" />];
+var_dump($buttons_array);
+/*if (isset( $_POST[$choices]['correctAnswer'] ) ) {
   echo 'correct';
-} elseif ( isset( $_POST['answer2'] ) ) {
+} elseif (isset( $_POST[$choices]['firstIncorrectAnswer'] ) ) {
       echo 'incorrect';
-} elseif ( isset( $_POST['answer3'] ) ) {
+} elseif (isset( $_POST[$choices]['secondIncorrectAnswer'] ) ) {
       echo 'incorrect';
 }*/
 
 $rand = array_rand($questions,1);
 shuffle($questions);
 
-$choices = [$questions[0]["correctAnswer"],$questions[0]["firstIncorrectAnswer"], $questions[0]["secondIncorrectAnswer"]];
+$correct = $questions[0]["correctAnswer"];
+$firstIncorrect = $questions[0]["firstIncorrectAnswer"];
+$secondIncorrect = $questions[0]["secondIncorrectAnswer"];
+$choices = [$correct , $firstIncorrect, $secondIncorrect];
+// $choices = [$questions[0]["correctAnswer"],$questions[0]["firstIncorrectAnswer"], $questions[0]["secondIncorrectAnswer"]];
 shuffle($choices);
 
+var_dump ($correct);
 if ((!isset($_SESSION["counter"]) || $_SESSION["counter"] >9)){
   $_SESSION["counter"] = 1;
 } else {
