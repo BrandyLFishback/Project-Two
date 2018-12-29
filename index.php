@@ -5,7 +5,7 @@
 
 $pageTitle = "Math Quiz: Addition";
 
-$correctAnswer =  $questions[0]["correctAnswer"];
+// $correctAnswer =  $questions[0]["correctAnswer"];
 
   // echo $_SESSION["score"];
 $rand = array_rand($questions,1);
@@ -31,9 +31,9 @@ echo "score = " . $_SESSION["score"];
 
 
 $choices = [
-  $questions[0]["correctAnswer"],
-  $questions[0]["firstIncorrectAnswer"],
-  $questions[0]["secondIncorrectAnswer"],
+  $$questions[$index]["correctAnswer"],
+  $$questions[$index]["firstIncorrectAnswer"],
+  $$questions[$index]["secondIncorrectAnswer"],
 ];
 shuffle($choices);
 
@@ -43,9 +43,8 @@ if ((!isset($_SESSION["counter"]) || $_SESSION["counter"] >9)){
     $_SESSION["counter"] += 1;
 }
 
-
-$questions[$_SESSION["counter"] - 1];
-$counter++;
+$index = $_SESSION["counter"] - 1;
+$index++;
 
 ?>
 
