@@ -5,48 +5,43 @@
 
 $pageTitle = "Math Quiz: Addition";
 
-$_SESSION["score"] = 0;
-// if (!isset($_SESSION["score"])){
-//   $_SESSION["score"] = 0;
-// }
-// var_dump($_POST);
+$correctAnswer =  $questions[0]["correctAnswer"];
 
-if ((isset($_SESSION["score"]) && $_SESSION["score"] == $choices[0]["correctAnswer"])){
-  $_SESSION["score"] += 1;
-}
-
-// var_dump($_SESSION);
-
-// echo $_SESSION["score"];
-
-$buttons_array[] = [<input type="submit" class="btn" name="answer1" value="<?php echo $choices[0];?>" />];
-$buttons_array[] = [<input type="submit" class="btn" name="answer2" value="<?php echo $choices[1];?>" />];
-var_dump($buttons_array);
-/*if (isset( $_POST[$choices]['correctAnswer'] ) ) {
-  echo 'correct';
-} elseif (isset( $_POST[$choices]['firstIncorrectAnswer'] ) ) {
-      echo 'incorrect';
-} elseif (isset( $_POST[$choices]['secondIncorrectAnswer'] ) ) {
-      echo 'incorrect';
-}*/
-
+  // echo $_SESSION["score"];
 $rand = array_rand($questions,1);
 shuffle($questions);
 
-$correct = $questions[0]["correctAnswer"];
-$firstIncorrect = $questions[0]["firstIncorrectAnswer"];
-$secondIncorrect = $questions[0]["secondIncorrectAnswer"];
-$choices = [$correct , $firstIncorrect, $secondIncorrect];
-// $choices = [$questions[0]["correctAnswer"],$questions[0]["firstIncorrectAnswer"], $questions[0]["secondIncorrectAnswer"]];
+if (isset($_SESSION["correctAnswer"]) && isset($_POST[$_SESSION["correctAnswer"]])) {
+    $_SESSION["score"] += 1;
+}
+
+if (!isset($_SESSION["score"])) {
+    $_SESSION["score"] = 0;
+    $_SESSION["counter"] = 0;
+    shuffle($questions);
+    $_SESSION["questions"] = $questions;
+}
+
+echo "score = " . $_SESSION["score"];
+
+
+//Get next question
+$currQuestion = array_pop($_SESSION["questions"]);
+$_SESSION["correctAnswer"] = $currQuestion["correctAnswer"];
+
+
+$choices = [
+  $questions[0]["correctAnswer"],
+  $questions[0]["firstIncorrectAnswer"],
+  $questions[0]["secondIncorrectAnswer"],
+];
 shuffle($choices);
 
-var_dump ($correct);
 if ((!isset($_SESSION["counter"]) || $_SESSION["counter"] >9)){
   $_SESSION["counter"] = 1;
 } else {
     $_SESSION["counter"] += 1;
 }
-
 ?>
 
 <html lang="en">
