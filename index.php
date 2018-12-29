@@ -24,10 +24,10 @@ if (!isset($_SESSION["score"])) {
 
 echo "score = " . $_SESSION["score"];
 
-
-//Get next question
-$currQuestion = array_pop($_SESSION["questions"]);
-$_SESSION["correctAnswer"] = $currQuestion["correctAnswer"];
+//
+// //Get next question
+// $currQuestion = array_pop($_SESSION["questions"]);
+// $_SESSION["correctAnswer"] = $currQuestion["correctAnswer"];
 
 
 $choices = [
@@ -42,6 +42,11 @@ if ((!isset($_SESSION["counter"]) || $_SESSION["counter"] >9)){
 } else {
     $_SESSION["counter"] += 1;
 }
+
+
+$questions[$_SESSION["counter"] - 1];
+$counter++;
+
 ?>
 
 <html lang="en">
