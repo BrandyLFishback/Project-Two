@@ -31,9 +31,9 @@ echo "score = " . $_SESSION["score"];
 
 
 $choices = [
-  $$questions[$index]["correctAnswer"],
-  $$questions[$index]["firstIncorrectAnswer"],
-  $$questions[$index]["secondIncorrectAnswer"],
+  $questions[$index]["correctAnswer"],
+  $questions[$index]["firstIncorrectAnswer"],
+  $questions[$index]["secondIncorrectAnswer"],
 ];
 shuffle($choices);
 
