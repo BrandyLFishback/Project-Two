@@ -4,43 +4,20 @@
  session_start();
 
 $pageTitle = "Math Quiz: Addition";
-var_dump($_POST);
-// $correctAnswer =  $questions[0]["correctAnswer"];
-
-  // echo $_SESSION["score"];
-// $rand = array_rand($questions,1);
-// shuffle($questions);
 
 // if (isset($_SESSION["correctAnswer"]) && isset($_POST[$_SESSION["correctAnswer"]])) {
 //     $_SESSION["score"] += 1;
-// }
-//
+
 // if (!isset($_SESSION["score"])) {
 //     $_SESSION["score"] = 0;
-//     $_SESSION["counter"] = 1;
-//     shuffle($questions);
-//     $_SESSION["questions"] = $questions;
-// }
-//
-// echo "score = " . $_SESSION["score"];
 
-//
-// //Get next question
-// $currQuestion = array_pop($_SESSION["questions"]);
-// $_SESSION["correctAnswer"] = $currQuestion["correctAnswer"];
-
-// $_SESSION["counter"] = 1;
-// $_SESSION["score"] = 0;
-// $_SESSION["questions"] = $questions;
-//
-//
-// if (isset({$_SESSION["questions"]))
+//shuffle questions and hold them in $_SESSION Variable
 if(!$_SESSION) {
   shuffle($questions);
   $_SESSION['questions'] = $questions;
 }
 
-
+//keep track of what question the quiz is on
 if ((!isset($_SESSION["counter"]) || $_SESSION["counter"] >9)){
 
   $_SESSION["counter"] = 1;
@@ -49,18 +26,17 @@ if ((!isset($_SESSION["counter"]) || $_SESSION["counter"] >9)){
     $_SESSION["counter"] += 1;
 }
 
-/*you need to find something that's == $_SESSION['questions'][$index]["correctAnswer"]*/
+/*need to find something that's == $_SESSION['questions'][$index]["correctAnswer"]*/
+//set the counter to 0
 $index = $_SESSION["counter"] - 1;
 
+//put the answers in an array ro shuffle them
 $choices = [
   $_SESSION['questions'][$index]["correctAnswer"],
   $_SESSION['questions'][$index]["firstIncorrectAnswer"],
   $_SESSION['questions'][$index]["secondIncorrectAnswer"],
 ];
 shuffle($choices);
-
-//var_dump($_SESSION['questions'][$index]);
-
 
 ?>
 
