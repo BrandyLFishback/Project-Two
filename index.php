@@ -5,6 +5,7 @@
 
 $pageTitle = "Math Quiz: Addition";
 
+
 // if (isset($_SESSION["correctAnswer"]) && isset($_POST[$_SESSION["correctAnswer"]])) {
 //     $_SESSION["score"] += 1;
 
