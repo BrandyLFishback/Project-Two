@@ -47,9 +47,9 @@ if($_SESSION["questions"][$index - 1]["correctAnswer"] == $answer){
 
 if($_SESSION["questions"][$index - 1]["correctAnswer"] == $answer){
   $_SESSION["score"] += 1;
-//   echo "YOUR SCORE IS " .$_SESSION["score"];
-// }else {
-//   echo "YOUR SCORE IS " . $_SESSION["score"];
+  echo "YOUR SCORE IS " .$_SESSION["score"];
+}else {
+  echo "YOUR SCORE IS " . $_SESSION["score"];
 }
 echo "<br></br>";
 echo "<br></br>";
@@ -93,7 +93,7 @@ shuffle($choices);
                 <input type="submit" class="btn" name="answer" value="<?php echo $choices[2];?>" />
             </form>
             <?php
-            if($_SESSION['counter'] >10) {
+            if($_SESSION['counter'] ==10) {
               session_destroy();
             } ?>
         </div>
