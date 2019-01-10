@@ -3,7 +3,7 @@
  include ("inc/questions.php");
  session_start();
  function redirect() {
-     header('location:inc/endgame.php');
+     header('location:inc/gameover.php');
      exit;
  }
 $pageTitle = "Math Quiz: Addition";
