@@ -2,7 +2,10 @@
 <?php
  include ("inc/questions.php");
  session_start();
-
+ function redirect() {
+     header('location:inc/endgame.php');
+     exit;
+ }
 $pageTitle = "Math Quiz: Addition";
 $answer = trim(filter_input(INPUT_POST, "answer", FILTER_SANITIZE_STRING));
 
@@ -18,7 +21,7 @@ if(!$_SESSION["questions"]) {
 
 
 //keep track of what question the quiz is on
-if ((!isset($_SESSION["counter"]) || $_SESSION["counter"] >10)){
+if ((!isset($_SESSION["counter"]) || $_SESSION["counter"] > 10)){
 
   $_SESSION["counter"] = 1;
 
@@ -44,17 +47,21 @@ if($_SESSION["questions"][$index - 1]["correctAnswer"] == $answer){
 
 if($_SESSION["questions"][$index - 1]["correctAnswer"] == $answer){
   $_SESSION["score"] += 1;
-  echo "YOUR SCORE IS " .$_SESSION["score"];
-}else {
-  echo "YOUR SCORE IS " . $_SESSION["score"];
+//   echo "YOUR SCORE IS " .$_SESSION["score"];
+// }else {
+//   echo "YOUR SCORE IS " . $_SESSION["score"];
 }
 echo "<br></br>";
 echo "<br></br>";
-if($_SESSION['counter'] >10) {
-  echo "Your Final Score Is" . $_SESSION["score"];
-}
+// if($_SESSION['counter'] >10) {
+  // echo "Your Final Score Is" . $_SESSION["score"];
+// }
 // var_dump ($_POST["correct"]);
 //put the answers in an array ro shuffle them
+if ($_SESSION["counter"] > 10) {
+  redirect();
+}
+
 $choices = [
   $_SESSION['questions'][$index]["correctAnswer"],
   $_SESSION['questions'][$index]["firstIncorrectAnswer"],
@@ -86,7 +93,7 @@ shuffle($choices);
                 <input type="submit" class="btn" name="answer" value="<?php echo $choices[2];?>" />
             </form>
             <?php
-            if($_SESSION['counter'] > 10) {
+            if($_SESSION['counter'] >10) {
               session_destroy();
             } ?>
         </div>

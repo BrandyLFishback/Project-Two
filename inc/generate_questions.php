@@ -3,7 +3,13 @@
 include ("index.php")
 // Generate random questions
 
-
+foreach ($questions as $question) {
+  echo "leftAdder" $_POST ["leftAdder"] . "rightAdder" $_POST ["rightAdder"] .
+        "correctAnswer" $_POST ["correctAnswer"]
+        "firstIncorrectAnswer" $_POST ["firstIncorrectAnswer"]
+        "secondIncorrectAnswer" $_POST ["secondIncorrectAnswer"];
+  // code...
+}
 
 $answer1 = $_POST["answer"];
 
