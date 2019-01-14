@@ -92,10 +92,7 @@ shuffle($choices);
                 <input type="submit" class="btn" name="answer" value="<?php echo $choices[1];?>" />
                 <input type="submit" class="btn" name="answer" value="<?php echo $choices[2];?>" />
             </form>
-            <?php
-            if($_SESSION['counter'] ==10) {
-              session_destroy();
-            } ?>
+          
         </div>
     </div>
 
