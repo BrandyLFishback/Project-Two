@@ -37,7 +37,7 @@ if ((!isset($_SESSION["counter"]) || $_SESSION["counter"] > 10)){
 //set the counter to 0
 $index = $_SESSION["counter"] - 1;
 
-//find correct answer
+if(!empty($answer)){
 if($_SESSION["questions"][$index - 1]["correctAnswer"] == $answer){
   echo "<br></br>";
   echo "<br></br>";
@@ -58,6 +58,7 @@ if($_SESSION["questions"][$index - 1]["correctAnswer"] == $answer){
 }
 echo "<br></br>";
 echo "<br></br>";
+}
 // if($_SESSION['counter'] >10) {
   // echo "Your Final Score Is" . $_SESSION["score"];
 // }
