@@ -9,6 +9,7 @@
 $pageTitle = "Math Quiz: Addition";
 $answer = trim(filter_input(INPUT_POST, "answer", FILTER_SANITIZE_STRING));
 
+
 //set session score
 if(!isset($_SESSION["score"])){
   $_SESSION["score"] = 0;
@@ -25,7 +26,11 @@ if ((!isset($_SESSION["counter"]) || $_SESSION["counter"] > 10)){
 
   $_SESSION["counter"] = 1;
 
-} else {
+} elseif($_SERVER["REQUEST_METHOD"] == "POST") {
+    $_SESSION["counter"]++;
+}
+
+else {
     $_SESSION["counter"] += 1;
 }
 
@@ -62,6 +67,7 @@ if ($_SESSION["counter"] > 10) {
   redirect();
 }
 
+
 $choices = [
   $_SESSION['questions'][$index]["correctAnswer"],
   $_SESSION['questions'][$index]["firstIncorrectAnswer"],
@@ -92,7 +98,7 @@ shuffle($choices);
                 <input type="submit" class="btn" name="answer" value="<?php echo $choices[1];?>" />
                 <input type="submit" class="btn" name="answer" value="<?php echo $choices[2];?>" />
             </form>
-          
+
         </div>
     </div>
 
