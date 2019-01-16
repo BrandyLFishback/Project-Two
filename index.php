@@ -30,9 +30,9 @@ if ((!isset($_SESSION["counter"]) || $_SESSION["counter"] > 10)){
     $_SESSION["counter"]++;
 }
 
-else {
-    $_SESSION["counter"] += 1;
-}
+//else {
+    //$_SESSION["counter"] += 1;
+//}
 
 //set the counter to 0
 $index = $_SESSION["counter"] - 1;
